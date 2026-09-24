@@ -20,9 +20,8 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" class="nav-link active" data-i18n="nav.home">Home</a></li>
         <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
-        <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
-        <li><a href="#cv" class="nav-link" data-i18n="nav.cv">CV</a></li>
         <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="#cv" class="nav-link" data-i18n="nav.cv">CV</a></li>
       </ul>
       <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">CZ</button>
     </nav>
@@ -41,7 +40,7 @@
             DevOps pipelines — turning manual processes into reliable, repeatable code.
           </p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary" data-i18n="hero.viewProjects">View Projects</a>
+            <a href="#about" class="btn btn-primary" data-i18n="hero.viewProjects">View Projects</a>
             <a href="#contact" class="btn btn-outline" data-i18n="hero.getInTouch">Get in Touch</a>
           </div>
         </div>
@@ -82,51 +81,46 @@
             </ul>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section section-alt">
-      <div class="container reveal">
-        <h2 class="section-title" data-i18n="projects.title">Projects</h2>
-        <p class="section-subtitle" data-i18n="projects.subtitle">A selection of repositories I currently build and maintain.</p>
-        <div class="projects-grid">
-          <article class="project-card">
-            <h3 data-i18n="projects.framework.title">Framework</h3>
-            <p data-i18n="projects.framework.desc">
-              An Azure DevOps pipeline framework built around reusable YAML templates and
-              capabilities, powering API-driven governance, reset and association workflows
-              at scale.
-            </p>
-            <p class="project-note" data-i18n="projects.framework.note">Includes companion repositories <strong>global</strong> and <strong>parameters</strong>.</p>
-          </article>
-          <article class="project-card">
-            <h3 data-i18n="projects.governance.title">Entra ID Governance</h3>
-            <p data-i18n="projects.governance.desc">
-              An end-to-end identity governance solution for Microsoft Entra ID covering
-              service principals, users, groups &amp; admin units, subscription RBAC,
-              conditional access policies and privileged role management.
-            </p>
-          </article>
-          <article class="project-card">
-            <h3 data-i18n="projects.agents.title">Self-Hosted Agents</h3>
-            <p data-i18n="projects.agents.desc">
-              Docker-based self-hosted Azure DevOps agent infrastructure, with scripted
-              pipelines to build, run and maintain scalable build agent capacity.
-            </p>
-          </article>
+        <div class="about-projects">
+          <h3 data-i18n="about.projectsTitle">Current Projects</h3>
+          <p data-i18n="about.projectsIntro">My current work is mainly about coding and taking care of the following projects:</p>
+          <div class="projects-grid">
+            <article class="project-card">
+              <h3 data-i18n="projects.framework.title">Framework</h3>
+              <p data-i18n="projects.framework.desc">
+                An Azure DevOps pipeline framework built around reusable YAML templates and
+                capabilities, powering API-driven governance, reset and association workflows
+                at scale.
+              </p>
+              <p class="project-note" data-i18n="projects.framework.note">Includes companion repositories <strong>global</strong> and <strong>parameters</strong>.</p>
+            </article>
+            <article class="project-card">
+              <h3 data-i18n="projects.governance.title">Entra ID Governance</h3>
+              <p data-i18n="projects.governance.desc">
+                An end-to-end identity governance solution for Microsoft Entra ID covering
+                service principals, users, groups &amp; admin units, subscription RBAC,
+                conditional access policies and privileged role management.
+              </p>
+            </article>
+            <article class="project-card">
+              <h3 data-i18n="projects.agents.title">Self-Hosted Agents</h3>
+              <p data-i18n="projects.agents.desc">
+                Docker-based self-hosted Azure DevOps agent infrastructure, with scripted
+                pipelines to build, run and maintain scalable build agent capacity.
+              </p>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- CV -->
-    <section id="cv" class="section">
-      <div class="container reveal">
-        <h2 class="section-title" data-i18n="cv.title">Curriculum Vitae</h2>
-        <p class="section-subtitle" data-i18n="cv.subtitle">Download my CV as a PDF in your preferred language.</p>
-        <div class="cv-downloads">
-          <a class="btn btn-primary" href="assets/cv/Tomas_Jetelina_CV_EN.pdf" download data-i18n="cv.downloadEn">Download CV (English)</a>
-          <a class="btn btn-outline" href="assets/cv/Tomas_Jetelina_CV_CZ.pdf" download data-i18n="cv.downloadCz">Stáhnout CV (Česky)</a>
+        <div class="about-legacy">
+          <h3 data-i18n="about.adTitle">Active Directory Experience</h3>
+          <p data-i18n="about.adText">
+            Earlier in my career I also worked extensively with Microsoft Active Directory. I completed
+            the in-depth <a href="https://www.gopas.cz/windows-server-active-directory-internals-and-troubleshooting_goc171" target="_blank" rel="noopener noreferrer">Active Directory Internals and Troubleshooting</a>
+            course at Gopas, and I am responsible for managing and maintaining the Active Directory
+            environment of NN Group.
+          </p>
         </div>
       </div>
     </section>
@@ -152,6 +146,18 @@
           <button type="submit" class="btn btn-primary" data-i18n="contact.send">Send Message</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="section">
+      <div class="container reveal">
+        <h2 class="section-title" data-i18n="cv.title">Curriculum Vitae</h2>
+        <p class="section-subtitle" data-i18n="cv.subtitle">View or download my CV as a PDF in your preferred language.</p>
+        <div class="cv-downloads">
+          <a class="btn btn-primary" href="assets/cv/Tomas_Jetelina_CV_EN.pdf" target="_blank" rel="noopener noreferrer" data-i18n="cv.downloadEn">View CV (English)</a>
+          <a class="btn btn-outline" href="assets/cv/Tomas_Jetelina_CV_CZ.pdf" target="_blank" rel="noopener noreferrer" data-i18n="cv.downloadCz">Zobrazit životopis (Česky)</a>
+        </div>
       </div>
     </section>
   </main>

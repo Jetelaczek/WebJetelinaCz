@@ -311,6 +311,29 @@ a:hover {
   font-size: 0.95rem;
 }
 
+/* About: projects & legacy experience subsections */
+.about-projects,
+.about-legacy {
+  margin-top: 3rem;
+}
+
+.about-projects h3,
+.about-legacy h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-projects > p,
+.about-legacy > p {
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  max-width: 70ch;
+}
+
+.about-legacy > p {
+  margin-bottom: 0;
+}
+
 /* Projects */
 .projects-grid {
   display: grid;
