@@ -12,7 +12,7 @@ The web page should include the following sections:
   - Projects section: present my projects as cards/bubbles, described in plain language without
     naming the underlying repositories. Do not title this section "Current Projects" — use
     wording like "Projects I've Been Working On" instead.
-  - Do not forget to mention my former experience with Active Directory (as last thing, shown as
+  - Do not forget to mention my ongoing experience with Active Directory (as last thing, shown as
     its own card/bubble alongside the other project cards) - I also went through this extensive AD course https://www.gopas.cz/windows-server-active-directory-internals-and-troubleshooting_goc171 and I am also responsible for managing and maintaining Active Directory environment of NN Group.
 - Contact: A form or contact information for visitors to reach out to me.
 - CV: Section where my CV can be viewed or downloaded (PDF format) in both Czech and English (create such CV based on my experiences and keep it updated regularly). When somobody click the link, the corresponding PDF should be opened on new page.
