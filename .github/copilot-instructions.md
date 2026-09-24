@@ -14,6 +14,14 @@ The web page should include the following sections:
     wording like "Projects I've Been Working On" instead.
   - Do not forget to mention my ongoing experience with Active Directory (as last thing, shown as
     its own card/bubble alongside the other project cards) - I also went through this extensive AD course https://www.gopas.cz/windows-server-active-directory-internals-and-troubleshooting_goc171 and I am also responsible for managing and maintaining Active Directory environment of NN Group.
+  - Companies section: below the Projects section, add a "Companies I've Been Working On"
+    section with one card/bubble per employer. Each card should include a short description of
+    what the company does/did, plus my role and dates there. My real employment history (from
+    LinkedIn) is: NN Group (2018–Present, Prague; Senior Identity DevOps Engineer, previously
+    Active Directory DevOps Engineer, Citrix Engineer, Senior Windows Engineer), Bosal Group
+    (2015–2018, Server & AD Administrator), Mallinckrodt (2013–2015, Windows Server Administrator
+    EMEA), Monster (2010–2012, IT Support Engineer), Orco Property Group (2008–2010, Network
+    Administrator/IT Helpdesk), Raiffeisenbank CZ (2006–2008, Network Administrator).
 - Contact: A form or contact information for visitors to reach out to me.
 - CV: Section where my CV can be viewed or downloaded (PDF format) in both Czech and English (create such CV based on my experiences and keep it updated regularly). When somobody click the link, the corresponding PDF should be opened on new page.
 
