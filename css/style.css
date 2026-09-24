@@ -312,16 +312,19 @@ a:hover {
 }
 
 /* About: projects subsection */
-.about-projects {
+.about-projects,
+.about-companies {
   margin-top: 3rem;
 }
 
-.about-projects h3 {
+.about-projects h3,
+.about-companies h3 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
 
-.about-projects > p {
+.about-projects > p,
+.about-companies > p {
   color: var(--color-text-muted);
   margin-bottom: 1.5rem;
   max-width: 70ch;
