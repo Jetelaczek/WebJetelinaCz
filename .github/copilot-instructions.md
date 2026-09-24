@@ -13,11 +13,14 @@ Future personal website URL will be: https://www.jetelina.cz
 
 # Web page Structure
 
+The web page should have 2 language versions: English and Czech.
+
 The web page should include the following sections:
 - Home: A brief introduction about myself.
 - About: Detailed information about my professional background, skills, and experiences.
 - Projects: Showcase of my current and past projects (repositories).
 - Contact: A form or contact information for visitors to reach out to me.
+- Section where my CV can be viewed or downloaded
 
 # Web page Design
 

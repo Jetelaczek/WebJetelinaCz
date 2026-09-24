@@ -142,6 +142,34 @@ a:hover {
     radial-gradient(circle at 80% 60%, rgba(79, 157, 255, 0.08), transparent 50%);
 }
 
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-content {
+  flex: 1 1 420px;
+}
+
+.hero-avatar {
+  flex: 0 0 auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 700;
+  color: #05101f;
+  background: linear-gradient(135deg, var(--color-primary), #8fd3ff);
+  box-shadow: 0 20px 60px rgba(79, 157, 255, 0.35);
+}
+
 .eyebrow {
   color: var(--color-primary);
   font-weight: 600;
@@ -374,6 +402,21 @@ a:hover {
 @media (max-width: 860px) {
   .about-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-avatar {
+    width: 160px;
+    height: 160px;
+    font-size: 3rem;
   }
 }
 

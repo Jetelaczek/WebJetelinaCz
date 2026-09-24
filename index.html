@@ -29,18 +29,21 @@
   <main>
     <!-- Home -->
     <section id="home" class="hero">
-      <div class="container hero-content reveal">
-        <p class="eyebrow">Hello, I'm</p>
-        <h1>Tomáš Jetelina</h1>
-        <h2 class="tagline">Cloud &amp; Identity Governance Engineer</h2>
-        <p class="lead">
-          I design and automate Azure cloud infrastructure, Entra ID governance and self-hosted
-          DevOps pipelines — turning manual processes into reliable, repeatable code.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      <div class="container hero-inner reveal">
+        <div class="hero-content">
+          <p class="eyebrow">Hello, I'm</p>
+          <h1>Tomáš Jetelina</h1>
+          <h2 class="tagline">Cloud &amp; Identity Governance Engineer</h2>
+          <p class="lead">
+            I design and automate Azure cloud infrastructure, Entra ID governance and self-hosted
+            DevOps pipelines — turning manual processes into reliable, repeatable code.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          </div>
         </div>
+        <div class="hero-avatar" aria-hidden="true">TJ</div>
       </div>
     </section>
 
@@ -119,7 +122,7 @@
       <div class="container reveal">
         <h2 class="section-title">Contact</h2>
         <p class="section-subtitle">Have a question or want to connect? Reach out below.</p>
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" action="mailto:contact@jetelina.cz" method="post" enctype="text/plain">
           <div class="form-row">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required />

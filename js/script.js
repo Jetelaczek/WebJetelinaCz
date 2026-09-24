@@ -55,12 +55,21 @@ revealEls.forEach((el) => observer.observe(el));
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Contact form (client-side only, no backend configured yet)
+// Contact form: opens the visitor's mail client with a prefilled message (no backend required)
 const contactForm = document.getElementById("contactForm");
 const formStatus = document.getElementById("formStatus");
+const CONTACT_EMAIL = "contact@jetelina.cz"; // TODO: replace with your real address
 
 contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  formStatus.textContent = "Thanks for reaching out! I'll get back to you soon.";
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  const subject = encodeURIComponent(`Website contact from ${name}`);
+  const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
+  formStatus.textContent = "Opening your email client to send the message...";
   contactForm.reset();
 });
