@@ -18,11 +18,13 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#home" class="nav-link active" data-i18n="nav.home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#cv" class="nav-link" data-i18n="nav.cv">CV</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
       </ul>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">CZ</button>
     </nav>
   </header>
 
@@ -31,16 +33,16 @@
     <section id="home" class="hero">
       <div class="container hero-inner reveal">
         <div class="hero-content">
-          <p class="eyebrow">Hello, I'm</p>
+          <p class="eyebrow" data-i18n="hero.eyebrow">Hello, I'm</p>
           <h1>Tomáš Jetelina</h1>
-          <h2 class="tagline">Cloud &amp; Identity Governance Engineer</h2>
-          <p class="lead">
+          <h2 class="tagline" data-i18n="hero.tagline">Cloud &amp; Identity Governance Engineer</h2>
+          <p class="lead" data-i18n="hero.lead">
             I design and automate Azure cloud infrastructure, Entra ID governance and self-hosted
             DevOps pipelines — turning manual processes into reliable, repeatable code.
           </p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            <a href="#projects" class="btn btn-primary" data-i18n="hero.viewProjects">View Projects</a>
+            <a href="#contact" class="btn btn-outline" data-i18n="hero.getInTouch">Get in Touch</a>
           </div>
         </div>
         <div class="hero-avatar" aria-hidden="true">TJ</div>
@@ -50,33 +52,33 @@
     <!-- About -->
     <section id="about" class="section">
       <div class="container reveal">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title" data-i18n="about.title">About Me</h2>
         <div class="about-grid">
           <div class="about-text">
-            <p>
+            <p data-i18n="about.p1">
               I'm a cloud and automation engineer focused on Microsoft Entra ID governance,
               Azure infrastructure and DevOps tooling. My work centers on building frameworks
               that make identity governance, access reviews and pipeline infrastructure
               scalable, secure and easy to maintain.
             </p>
-            <p>
+            <p data-i18n="about.p2">
               I enjoy turning repetitive, manual administration into automated, auditable
               processes — from conditional access policy management to self-hosted build
               agent infrastructure.
             </p>
-            <a href="https://www.linkedin.com/in/tjetelina/" target="_blank" rel="noopener noreferrer" class="link-arrow">
+            <a href="https://www.linkedin.com/in/tjetelina/" target="_blank" rel="noopener noreferrer" class="link-arrow" data-i18n="about.linkedin">
               View full profile on LinkedIn →
             </a>
           </div>
           <div class="about-skills">
-            <h3>Core Skills</h3>
+            <h3 data-i18n="about.skillsTitle">Core Skills</h3>
             <ul class="skills-list">
-              <li>Microsoft Entra ID Governance</li>
-              <li>Azure Infrastructure &amp; RBAC</li>
-              <li>Azure DevOps Pipelines (YAML)</li>
-              <li>PowerShell &amp; Automation Scripting</li>
-              <li>Self-Hosted Build Agents &amp; Docker</li>
-              <li>Conditional Access Policy Management</li>
+              <li data-i18n="about.skill1">Microsoft Entra ID Governance</li>
+              <li data-i18n="about.skill2">Azure Infrastructure &amp; RBAC</li>
+              <li data-i18n="about.skill3">Azure DevOps Pipelines (YAML)</li>
+              <li data-i18n="about.skill4">PowerShell &amp; Automation Scripting</li>
+              <li data-i18n="about.skill5">Self-Hosted Build Agents &amp; Docker</li>
+              <li data-i18n="about.skill6">Conditional Access Policy Management</li>
             </ul>
           </div>
         </div>
@@ -86,29 +88,29 @@
     <!-- Projects -->
     <section id="projects" class="section section-alt">
       <div class="container reveal">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">A selection of repositories I currently build and maintain.</p>
+        <h2 class="section-title" data-i18n="projects.title">Projects</h2>
+        <p class="section-subtitle" data-i18n="projects.subtitle">A selection of repositories I currently build and maintain.</p>
         <div class="projects-grid">
           <article class="project-card">
-            <h3>Framework</h3>
-            <p>
+            <h3 data-i18n="projects.framework.title">Framework</h3>
+            <p data-i18n="projects.framework.desc">
               An Azure DevOps pipeline framework built around reusable YAML templates and
               capabilities, powering API-driven governance, reset and association workflows
               at scale.
             </p>
-            <p class="project-note">Includes companion repositories <strong>global</strong> and <strong>parameters</strong>.</p>
+            <p class="project-note" data-i18n="projects.framework.note">Includes companion repositories <strong>global</strong> and <strong>parameters</strong>.</p>
           </article>
           <article class="project-card">
-            <h3>Entra ID Governance</h3>
-            <p>
+            <h3 data-i18n="projects.governance.title">Entra ID Governance</h3>
+            <p data-i18n="projects.governance.desc">
               An end-to-end identity governance solution for Microsoft Entra ID covering
               service principals, users, groups &amp; admin units, subscription RBAC,
               conditional access policies and privileged role management.
             </p>
           </article>
           <article class="project-card">
-            <h3>Self-Hosted Agents</h3>
-            <p>
+            <h3 data-i18n="projects.agents.title">Self-Hosted Agents</h3>
+            <p data-i18n="projects.agents.desc">
               Docker-based self-hosted Azure DevOps agent infrastructure, with scripted
               pipelines to build, run and maintain scalable build agent capacity.
             </p>
@@ -117,25 +119,37 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
+    <!-- CV -->
+    <section id="cv" class="section">
       <div class="container reveal">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">Have a question or want to connect? Reach out below.</p>
+        <h2 class="section-title" data-i18n="cv.title">Curriculum Vitae</h2>
+        <p class="section-subtitle" data-i18n="cv.subtitle">Download my CV as a PDF in your preferred language.</p>
+        <div class="cv-downloads">
+          <a class="btn btn-primary" href="assets/cv/Tomas_Jetelina_CV_EN.pdf" download data-i18n="cv.downloadEn">Download CV (English)</a>
+          <a class="btn btn-outline" href="assets/cv/Tomas_Jetelina_CV_CZ.pdf" download data-i18n="cv.downloadCz">Stáhnout CV (Česky)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-alt">
+      <div class="container reveal">
+        <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+        <p class="section-subtitle" data-i18n="contact.subtitle">Have a question or want to connect? Reach out below.</p>
         <form class="contact-form" id="contactForm" action="mailto:contact@jetelina.cz" method="post" enctype="text/plain">
           <div class="form-row">
-            <label for="name">Name</label>
+            <label for="name" data-i18n="contact.name">Name</label>
             <input type="text" id="name" name="name" required />
           </div>
           <div class="form-row">
-            <label for="email">Email</label>
+            <label for="email" data-i18n="contact.email">Email</label>
             <input type="email" id="email" name="email" required />
           </div>
           <div class="form-row">
-            <label for="message">Message</label>
+            <label for="message" data-i18n="contact.message">Message</label>
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="submit" class="btn btn-primary" data-i18n="contact.send">Send Message</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -144,11 +158,12 @@
 
   <footer class="site-footer">
     <div class="container footer-content">
-      <p>&copy; <span id="year"></span> Tomáš Jetelina. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> Tomáš Jetelina. <span data-i18n="footer.rights">All rights reserved.</span></p>
       <a href="https://www.linkedin.com/in/tjetelina/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
