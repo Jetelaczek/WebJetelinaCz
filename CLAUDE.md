@@ -13,7 +13,7 @@ Tomáš Jetelina's personal website, an online CV at https://www.jetelina.cz. Te
   - **Contact**: a form and contact details for Visitors.
   - **CV**: view or download the CV as a PDF in English and Czech; each link opens the PDF in a new tab.
 - **CV stays in step with the site.** When career content changes, update both CVs to match and regenerate both PDFs.
-- **Design:** clean, modern, professional and responsive on desktop and mobile. Clear typography, smooth but subtle animations and transitions, and images optimised for fast loading.
+- **Design:** clean, modern, professional and responsive on desktop and mobile. Strictly black & white: greys only, no accent colour, on the page (light and dark themes) and in both CVs. Clear typography, smooth but subtle animations and transitions, and images optimised for fast loading.
 - **Content:** concise and well structured, with high-quality images where they help. Proofread all text in both languages.
 
 ## Agent skills
