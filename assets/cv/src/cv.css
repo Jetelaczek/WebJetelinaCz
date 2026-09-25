@@ -1,0 +1,42 @@
+/* Print layout shared by cv-en.html and cv-cz.html */
+@page { size: A4; margin: 18mm 16mm; }
+* { box-sizing: border-box; }
+body {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  color: #1c2333;
+  font-size: 11pt;
+  line-height: 1.5;
+}
+h1 { font-family: "Poppins", sans-serif; font-size: 22pt; margin: 0 0 2px; color: #0f172a; }
+h2.role { font-size: 12pt; font-weight: 600; color: #2f7ee0; margin: 0 0 14px; }
+.contact-line { font-size: 9.5pt; color: #4b5568; margin-bottom: 18px; }
+.contact-line span::after { content: " · "; }
+.contact-line span:last-child::after { content: ""; }
+section { margin-bottom: 16px; }
+.cv-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.photo { width: 30mm; height: 30mm; border-radius: 50%; object-fit: cover; }
+.entry { break-inside: avoid; }
+a { color: #2f7ee0; text-decoration: none; }
+h3.section-heading {
+  font-size: 11pt;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #0f172a;
+  border-bottom: 1.5px solid #2f7ee0;
+  padding-bottom: 3px;
+  margin-bottom: 8px;
+}
+.entry { margin-bottom: 10px; }
+.entry-title { font-weight: 600; }
+.entry-meta { font-size: 9.5pt; color: #5a6479; font-style: italic; }
+ul { margin: 4px 0 0 18px; padding: 0; }
+li { margin-bottom: 3px; }
+.skills-grid { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+.skill-pill {
+  background: #eef3fb;
+  border: 1px solid #d7e3f5;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 9.5pt;
+}
+.placeholder { color: #a13b3b; }
