@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tomáš Jetelina | Cloud &amp; Automation Engineer</title>
-  <meta name="description" content="Personal CV website of Tomáš Jetelina — cloud automation, Entra ID governance and DevOps engineer." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <title>Tomáš Jetelina | Identity &amp; Cloud Automation Engineer</title>
+  <meta name="description" content="Personal CV website of Tomáš Jetelina — Identity &amp; Cloud Automation Engineer: Entra ID governance, Azure and DevOps." />
+  <meta name="color-scheme" content="light dark" />
+  <script>
+    // Apply a saved light/dark choice before first paint; otherwise CSS follows the system setting.
+    try {
+      const theme = localStorage.getItem("site-theme");
+      if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+    } catch {}
+  </script>
+  <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:," />
 </head>
@@ -14,16 +22,19 @@
   <header class="site-header" id="top">
     <nav class="navbar container">
       <a href="#top" class="logo">TJ<span>.</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" class="nav-link active" data-i18n="nav.home">Home</a></li>
         <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
         <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
         <li><a href="#cv" class="nav-link" data-i18n="nav.cv">CV</a></li>
       </ul>
-      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">CZ</button>
+      <div class="nav-actions">
+        <button class="header-btn theme-toggle" id="themeToggle" type="button"></button>
+        <button class="header-btn" id="langToggle" type="button">CZ</button>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -33,17 +44,14 @@
       <div class="container hero-inner reveal">
         <div class="hero-content">
           <p class="eyebrow" data-i18n="hero.eyebrow">Hello, I'm</p>
-          <h1>Tomáš Jetelina</h1>
-          <h2 class="tagline" data-i18n="hero.tagline">Cloud &amp; Identity Governance Engineer</h2>
-          <p class="lead" data-i18n="hero.lead">
-            I design and automate Azure cloud infrastructure, Entra ID governance and self-hosted
-            DevOps pipelines — turning manual processes into reliable, repeatable code.
-          </p>
+          <h1 id="heroName"></h1>
+          <h2 class="tagline" id="heroHeadline"></h2>
+          <p class="lead" id="heroIntro"></p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary" data-i18n="hero.getInTouch">Get in Touch</a>
           </div>
         </div>
-        <div class="hero-avatar" aria-hidden="true">TJ</div>
+        <div class="hero-avatar" id="heroAvatar"></div>
       </div>
     </section>
 
@@ -53,151 +61,25 @@
         <h2 class="section-title" data-i18n="about.title">About Me</h2>
         <div class="about-grid">
           <div class="about-text">
-            <p data-i18n="about.p1">
-              I'm a cloud and automation engineer focused on Microsoft Entra ID governance,
-              Azure infrastructure and DevOps tooling. My work centers on building frameworks
-              that make identity governance, access reviews and pipeline infrastructure
-              scalable, secure and easy to maintain.
-            </p>
-            <p data-i18n="about.p2">
-              I enjoy turning repetitive, manual administration into automated, auditable
-              processes — from conditional access policy management to self-hosted build
-              agent infrastructure.
-            </p>
-            <a href="https://www.linkedin.com/in/tjetelina/" target="_blank" rel="noopener noreferrer" class="link-arrow" data-i18n="about.linkedin">
-              View full profile on LinkedIn →
-            </a>
+            <div id="aboutText"></div>
+            <a href="#" data-linkedin target="_blank" rel="noopener noreferrer" class="link-arrow" data-i18n="about.linkedin">View full profile on LinkedIn →</a>
           </div>
           <div class="about-skills">
             <h3 data-i18n="about.skillsTitle">Core Skills</h3>
-            <ul class="skills-list">
-              <li data-i18n="about.skill1">Microsoft Entra ID Governance</li>
-              <li data-i18n="about.skill2">Azure Infrastructure &amp; RBAC</li>
-              <li data-i18n="about.skill3">Azure DevOps Pipelines (YAML)</li>
-              <li data-i18n="about.skill4">PowerShell &amp; Automation Scripting</li>
-              <li data-i18n="about.skill5">Self-Hosted Build Agents &amp; Docker</li>
-              <li data-i18n="about.skill6">Conditional Access Policy Management</li>
-            </ul>
+            <ul class="skills-list" id="skillsList"></ul>
           </div>
         </div>
 
         <div class="about-projects">
           <h3 data-i18n="about.projectsTitle">Projects I've Been Working On</h3>
           <p data-i18n="about.projectsIntro">Here are some of the projects I've been building and maintaining:</p>
-          <div class="projects-grid">
-            <article class="project-card">
-              <h3 data-i18n="projects.framework.title">Pipeline Automation Framework</h3>
-              <p data-i18n="projects.framework.desc">
-                A reusable DevOps pipeline framework built around modular templates and
-                capabilities, powering API-driven governance, reset and association workflows
-                at scale.
-              </p>
-              <p class="project-note" data-i18n="projects.framework.note">Built together with supporting configuration and shared-parameter components that keep every environment consistent.</p>
-            </article>
-            <article class="project-card">
-              <h3 data-i18n="projects.governance.title">Identity Governance Solution</h3>
-              <p data-i18n="projects.governance.desc">
-                An end-to-end identity governance solution for Microsoft Entra ID covering
-                service principals, users, groups &amp; admin units, subscription RBAC,
-                conditional access policies and privileged role management.
-              </p>
-            </article>
-            <article class="project-card">
-              <h3 data-i18n="projects.agents.title">Build Agent Infrastructure</h3>
-              <p data-i18n="projects.agents.desc">
-                Docker-based self-hosted build agent infrastructure, with scripted
-                pipelines to build, run and maintain scalable agent capacity.
-              </p>
-            </article>
-            <article class="project-card">
-              <h3 data-i18n="about.adTitle">Active Directory Experience</h3>
-              <p data-i18n="about.adText">
-                Alongside my current work, I also have extensive, ongoing hands-on experience with Microsoft Active Directory. I completed
-                an in-depth <a href="https://www.gopas.cz/windows-server-active-directory-internals-and-troubleshooting_goc171" target="_blank" rel="noopener noreferrer">Active Directory Internals and Troubleshooting</a>
-                training program, and I continue to manage and maintain the Active Directory
-                environment at NN Group.
-              </p>
-            </article>
-          </div>
+          <div class="projects-grid" id="projectsGrid"></div>
         </div>
 
-        <div class="about-companies">
-          <h3 data-i18n="about.companiesTitle">Companies I've Been Working On</h3>
-          <p data-i18n="about.companiesIntro">A quick look at the companies that have shaped my career:</p>
-          <div class="projects-grid">
-            <article class="project-card">
-              <h3 data-i18n="companies.nn.title">NN Group</h3>
-              <p data-i18n="companies.nn.about">
-                NN Group is an international insurance and asset management company
-                headquartered in the Netherlands, serving millions of customers across Europe
-                and Japan.
-              </p>
-              <p class="project-note" data-i18n="companies.nn.desc">
-                Senior Identity DevOps Engineer, 2018 – Present, Prague. I automate identity
-                infrastructure — Infrastructure as Code for domain controllers and management
-                servers across on-premises, Azure and AWS — after earlier roles in Active
-                Directory operations, Citrix virtualization and Windows Server administration.
-              </p>
-            </article>
-            <article class="project-card">
-              <h3 data-i18n="companies.bosal.title">Bosal Group</h3>
-              <p data-i18n="companies.bosal.about">
-                Bosal Group is a Belgium-headquartered global manufacturer of towbars, roof
-                racks and exhaust systems, with factories around the world.
-              </p>
-              <p class="project-note" data-i18n="companies.bosal.desc">
-                Server &amp; Active Directory Administrator, 2015 – 2018, Prague. Managed Windows
-                Server, Hyper-V/VMware and Active Directory infrastructure across the group's
-                data centre and 20+ factories worldwide.
-              </p>
-            </article>
-            <article class="project-card">
-              <h3 data-i18n="companies.mallinckrodt.title">Mallinckrodt</h3>
-              <p data-i18n="companies.mallinckrodt.about">
-                Mallinckrodt is a global pharmaceutical company producing specialty generics
-                and branded therapeutics.
-              </p>
-              <p class="project-note" data-i18n="companies.mallinckrodt.desc">
-                Windows Server Administrator, EMEA, 2013 – 2015, Prague. Sole EMEA domain
-                administrator, managing server infrastructure across roughly 30 sites alongside
-                Asia-Pacific and US teams.
-              </p>
-            </article>
-            <article class="project-card">
-              <h3 data-i18n="companies.monster.title">Monster</h3>
-              <p data-i18n="companies.monster.about">
-                Monster is a global online job-search platform connecting job seekers with
-                employers worldwide.
-              </p>
-              <p class="project-note" data-i18n="companies.monster.desc">
-                IT Support Engineer, 2010 – 2012, Prague. Ran local IT infrastructure and
-                support, and served on the EU security and workflow teams.
-              </p>
-            </article>
-            <article class="project-card">
-              <h3 data-i18n="companies.orco.title">Orco Property Group</h3>
-              <p data-i18n="companies.orco.about">
-                Orco Property Group is a Central European real estate and hospitality group,
-                including the Mamaison Hotels &amp; Apartments brand.
-              </p>
-              <p class="project-note" data-i18n="companies.orco.desc">
-                Network Administrator &amp; IT Helpdesk, 2008 – 2010, Prague. Administered the
-                corporate domain, servers and Active Directory, and provided 24/7 support for a
-                chain of European hotels.
-              </p>
-            </article>
-            <article class="project-card">
-              <h3 data-i18n="companies.raiffeisenbank.title">Raiffeisenbank CZ</h3>
-              <p data-i18n="companies.raiffeisenbank.about">
-                Raiffeisenbank CZ is a major Czech commercial bank offering retail and corporate
-                banking services.
-              </p>
-              <p class="project-note" data-i18n="companies.raiffeisenbank.desc">
-                Network Administrator, 2006 – 2008, Prague. Managed domain infrastructure,
-                Active Directory and Exchange, and supported corporate users.
-              </p>
-            </article>
-          </div>
+        <div class="about-employers">
+          <h3 data-i18n="about.employersTitle">Where I've Worked</h3>
+          <p data-i18n="about.employersIntro">A quick look at the companies that have shaped my career:</p>
+          <div class="projects-grid" id="employersGrid"></div>
         </div>
       </div>
     </section>
@@ -206,23 +88,34 @@
     <section id="contact" class="section section-alt">
       <div class="container reveal">
         <h2 class="section-title" data-i18n="contact.title">Contact</h2>
-        <p class="section-subtitle" data-i18n="contact.subtitle">Have a question or want to connect? Reach out below.</p>
-        <form class="contact-form" id="contactForm" action="mailto:contact@jetelina.cz" method="post" enctype="text/plain">
-          <div class="form-row">
-            <label for="name" data-i18n="contact.name">Name</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div class="form-row">
-            <label for="email" data-i18n="contact.email">Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div class="form-row">
-            <label for="message" data-i18n="contact.message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" data-i18n="contact.send">Send Message</button>
-          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        </form>
+        <p class="section-subtitle" data-i18n="contact.subtitle">Have a question or want to connect? Send me a message, or reach me directly.</p>
+        <div class="contact-grid">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <label for="name" data-i18n="contact.name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required />
+            </div>
+            <div class="form-row">
+              <label for="email" data-i18n="contact.email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+            <div class="form-row">
+              <label for="message" data-i18n="contact.message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <!-- Honeypot: real Visitors never see or tick this; Web3Forms drops submissions that do. -->
+            <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button type="submit" class="btn btn-primary" data-i18n="contact.send">Send Message</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+          <aside class="contact-direct">
+            <h3 data-i18n="contact.direct">Reach me directly</h3>
+            <ul>
+              <li><a id="contactEmail" href="#"></a></li>
+              <li><a href="#" data-linkedin target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+          </aside>
+        </div>
       </div>
     </section>
 
@@ -231,22 +124,23 @@
       <div class="container reveal">
         <h2 class="section-title" data-i18n="cv.title">Curriculum Vitae</h2>
         <p class="section-subtitle" data-i18n="cv.subtitle">View or download my CV as a PDF in your preferred language.</p>
-        <div class="cv-downloads">
-          <a class="btn btn-primary" href="assets/cv/Tomas_Jetelina_CV_EN.pdf" target="_blank" rel="noopener noreferrer" data-i18n="cv.downloadEn">View CV (English)</a>
-          <a class="btn btn-outline" href="assets/cv/Tomas_Jetelina_CV_CZ.pdf" target="_blank" rel="noopener noreferrer" data-i18n="cv.downloadCz">Zobrazit životopis (Česky)</a>
-        </div>
+        <div class="cv-downloads" id="cvDownloads"></div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-content">
-      <p>&copy; <span id="year"></span> Tomáš Jetelina. <span data-i18n="footer.rights">All rights reserved.</span></p>
-      <a href="https://www.linkedin.com/in/tjetelina/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <p>&copy; <span id="year"></span> <span id="footerName"></span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <a href="#" data-linkedin target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </footer>
 
+  <script src="js/config.js"></script>
+  <script src="js/career-data.js"></script>
+  <script src="js/career-format.js"></script>
   <script src="js/i18n.js"></script>
+  <script src="js/render.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
